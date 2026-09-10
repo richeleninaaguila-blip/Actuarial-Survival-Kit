@@ -607,10 +607,10 @@ h2 em {
 
 /* SPOT GRIDS & CARDS */
 .spot-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.25rem;
+    align-items: stretch;
 }
 
 .spot-card {
@@ -618,16 +618,13 @@ h2 em {
     border: 1px solid var(--line);
     border-top: 3px solid var(--violet);
     border-radius: 6px;
-    padding: 0.75rem 1rem;
-    width: fit-content;
-    max-width: 300px;
+    padding: 1rem 1.25rem;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
     box-shadow: 0 1px 3px rgba(76, 29, 149, 0.08);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.spot-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 3px 8px rgba(76, 29, 149, 0.12);
 }
 
 .spot-header {
@@ -635,7 +632,7 @@ h2 em {
     justify-content: space-between;
     align-items: center;
     gap: 0.75rem;
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.5rem;
 }
 
 .spot-area {
@@ -661,7 +658,7 @@ h2 em {
 
 .spot-card h3 {
     font-size: 1rem;
-    margin-bottom: 0.15rem;
+    margin-bottom: 0.25rem;
     color: var(--violet-dark);
 }
 
@@ -669,7 +666,7 @@ h2 em {
     font-size: 0.8rem;
     color: var(--gray);
     font-weight: 600;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
 }
 
 .spot-action {
@@ -678,7 +675,8 @@ h2 em {
     color: var(--violet);
     font-size: 0.8rem;
     border-top: 1px solid var(--line);
-    padding-top: 0.4rem;
+    padding-top: 0.5rem;
+    margin-top: auto; /* Aligns all 'Get Directions' links uniform at the bottom */
     width: 100%;
     transition: color 0.2s ease;
 }
