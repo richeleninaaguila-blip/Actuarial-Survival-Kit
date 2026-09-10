@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Actuarial Survival Kit | UST MathSoc</title>
+
+    <meta
+        name="description"
+        content="Actuarial Survival Kit - UST Mathematical Society Platform for Actuarial Science Students"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="container nav-container">
+        <a href="#home" class="brand">
+            <div class="logo-mark">
+                <img src="MathSoc Logo.png" alt="UST Mathematical Society Logo" onerror="this.style.display='none'">
+            </div>
+            <div class="brand-name">
+                <strong>Actuarial Survival Kit</strong>
+                <span>UST Mathematical Society</span>
+            </div>
+        </a>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#survival-pack">Survival Pack</a>
+            <a href="#faqs">FAQs</a>
+            <a href="#curriculum">Curriculum</a>
+        </nav>
+
+        <button class="menu-button" id="menuButton" aria-label="Open navigation">
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
+
+<main>
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <p class="overline">SCHOOL YEAR 2026–2027</p>
+            <h1>Survive First Year, <span>with confidence.</span></h1>
+            <p class="hero-description">
+                Survive First Year Actuarial Science with real student insights. A student-driven platform designed to support Actuarial Science students through curated academic insights, campus survival guides, and senior experiences.
+            </p>
+            <div class="hero-actions">
+                <a href="#survival-pack" class="button button-primary">Explore Survival Pack</a>
+                <a href="#curriculum" class="button button-outline">View Curriculum</a>
+            </div>
+        </div>
+        <div class="hero-bottom">
+            <div class="container hero-bottom-inner">
+                <span>ACTUARIAL SURVIVAL KIT</span>
+                <span>AY 2026–2027</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="intro section" id="about">
+        <div class="container intro-grid">
+            <div>
+                <p class="overline">ABOUT THE PLATFORM</p>
+                <h2>A centralized resource for <em>Actuarial Life.</em></h2>
+            </div>
+            <div class="intro-text">
+                <p>
+                    Actuarial Survival Kit is a student-driven website platform designed to support Actuarial Science students through curated academic insights, campus survival guides, and senior experiences. It serves as a centralized, accessible online resource that helps students better understand subjects, adjust to academic life, and navigate university challenges.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects section" id="survival-pack">
+        <div class="container">
+            <div class="projects-heading">
+                <div>
+                    <p class="overline">STUDENT LIFE</p>
+                    <h2>Campus <em>Survival Pack.</em></h2>
+                </div>
+                <p>Curated spots around UST campus to refuel, study, and recharge during your first year.</p>
+            </div>
+
+            <!-- WALKING TIME LOCATION PICKER -->
+            <div class="location-picker-card">
+                <div class="location-picker-header">
+                    <span class="location-icon">📍</span>
+                    <div>
+                        <strong>Calculate Walking Distance & Time</strong>
+                        <p>Select your starting UST landmark to estimate realistic walking times based on an 80 m/min speed.</p>
+                    </div>
+                </div>
+                <div class="location-picker-controls">
+                    <label for="startingLocationSelect" class="visually-hidden">Select Start Location</label>
+                    <select id="startingLocationSelect" class="high-contrast-select" onchange="updateCalculatedWalkTimes()">
+                        <optgroup label="Campus Landmarks">
+                            <option value="main_building">UST Main Building</option>
+                            <option value="qpav">Quadricentennial Pavilion (QPAV)</option>
+                            <option value="hospital">UST Hospital</option>
+                            <option value="ust_field">UST Field</option>
+                        </optgroup>
+                    </select>
+                    <button class="button button-secondary-dark" onclick="useGPSLocation()">
+                        🌐 Use Current GPS
+                    </button>
+                    <button class="button button-purple-outline" id="sortBtn" onclick="sortSpotsByDistance()">
+                        <p style="color: white;">⏱ Sort: Nearest First</p>
+                    </button>
+                </div>
+                <p id="locationStatus" class="location-status-text">Starting point set to: <strong>UST Main Building</strong></p>
+                <div class="disclaimer-text">
+                    <strong>Disclaimer:</strong> Walking times are calculated based on an average walking speed of 80m/minute (~4.8 km/h). Distances are calibrated for practical pedestrian walking routes from key campus landmarks.
+                </div>
+            </div>
+
+            <div class="tab-container">
+                <button class="tab-button active" onclick="switchTab('food')">Food Spots</button>
+                <button class="tab-button" onclick="switchTab('coffee')">Coffee Shops</button>
+                <button class="tab-button" onclick="switchTab('study')">Study Spots</button>
+            </div>
+
+            <!-- FOOD SPOTS -->
+            <div class="spot-grid tab-content" id="food">
+                <!-- P. NOVAL -->
+                <div class="spot-card" data-dist-main_building="380" data-dist-qpav="450" data-dist-hospital="510" data-dist-ust_field="165" data-lat="14.6076516" data-lng="120.9884297">
+                    <div class="spot-header">
+                        <span class="spot-area">P. Noval</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Santorini</h3>
+                    <p class="spot-address">981 Padre Noval St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/Santorini,+981+Padre+Noval+St,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="710" data-dist-qpav="565" data-dist-hospital="760" data-dist-ust_field="435" data-lat="14.6053705" data-lng="120.9906148">
+                    <div class="spot-header">
+                        <span class="spot-area">P. Noval</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Ramen Avenue</h3>
+                    <p class="spot-address">789 Padre Noval St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/Ramen+Avenue,+789+Padre+Noval+St,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="380" data-dist-qpav="460" data-dist-hospital="510" data-dist-ust_field="175" data-lat="14.6076522" data-lng="120.9883354">
+                    <div class="spot-header">
+                        <span class="spot-area">P. Noval</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Angkong Dimsum House</h3>
+                    <p class="spot-address">1223 Delos Reyes St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/Angkong+Dimsum+House,+1223+Delos+Reyes+St,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="425" data-dist-qpav="635" data-dist-hospital="590" data-dist-ust_field="380" data-lat="14.6084983" data-lng="120.986618">
+                    <div class="spot-header">
+                        <span class="spot-area">P. Noval</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Enrico's</h3>
+                    <p class="spot-address">1109 Tolentino St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/Red+Manor+Residences,+1109+Tolentino+St,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="295" data-dist-qpav="595" data-dist-hospital="445" data-dist-ust_field="460" data-lat="14.6105911" data-lng="120.9870068">
+                    <div class="spot-header">
+                        <span class="spot-area">P. Noval</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Dimsum Treats</h3>
+                    <p class="spot-address">cor Dapitan St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/Dimsum+Treats,+cor+Dapitan+St,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="300" data-dist-qpav="510" data-dist-hospital="425" data-dist-ust_field="285" data-lat="14.608721" data-lng="120.9874162">
+                    <div class="spot-header">
+                        <span class="spot-area">P. Noval</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Dominique's Kitchen</h3>
+                    <p class="spot-address">1085 Padre Noval St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/Dominique's+Kitchen,+1085+Padre+Noval+St,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="385" data-dist-qpav="455" data-dist-hospital="510" data-dist-ust_field="175" data-lat="14.6076987" data-lng="120.9881504">
+                    <div class="spot-header">
+                        <span class="spot-area">P. Noval</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>M.A.A. Food Hub & Coco Lemon</h3>
+                    <p class="spot-address">1223 Delos Reyes St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/M.A.A.+Food+Hub,+1223+Delos+Reyes+St,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="265" data-dist-qpav="380" data-dist-hospital="320" data-dist-ust_field="480" data-lat="14.6124358" data-lng="120.9881377">
+                    <div class="spot-header">
+                        <span class="spot-area">P. Noval</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Tiger Winx</h3>
+                    <p class="spot-address">1240 Concepcion St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/place/Tiger+Winx,+1240+Concepcion+St,+Sampaloc,+Manila" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <!-- DAPITAN -->
+                <div class="spot-card" data-dist-main_building="190" data-dist-qpav="455" data-dist-hospital="300" data-dist-ust_field="475" data-lat="14.6119837" data-lng="120.9875833">
+                    <div class="spot-header">
+                        <span class="spot-area">Dapitan</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Garaje Grill</h3>
+                    <p class="spot-address">1234 Asturias St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/Garaje+grill,+1234+Asturias+St,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="195" data-dist-qpav="460" data-dist-hospital="310" data-dist-ust_field="465" data-lat="14.6118896" data-lng="120.9876705">
+                    <div class="spot-header">
+                        <span class="spot-area">Dapitan</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Lovelite</h3>
+                    <p class="spot-address">1224 Asturias St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/Lovelite,+1224+Asturias+St,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="175" data-dist-qpav="430" data-dist-hospital="280" data-dist-ust_field="445" data-lat="14.6117291" data-lng="120.9880787">
+                    <div class="spot-header">
+                        <span class="spot-area">Dapitan</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Cheesy Friezz Chick'n</h3>
+                    <p class="spot-address">1207 Antonio St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/Cheesy+Friezz+Chick'n,+1207+Antonio+St,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="270" data-dist-qpav="455" data-dist-hospital="370" data-dist-ust_field="530" data-lat="14.6125033" data-lng="120.9878754">
+                    <div class="spot-header">
+                        <span class="spot-area">Dapitan</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Chic'N Fritz</h3>
+                    <p class="spot-address">1243 V Concepcion St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/place/Chic'N+Fritz,+1243+V+Concepcion+St,+Sampaloc,+Manila" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="260" data-dist-qpav="525" data-dist-hospital="380" data-dist-ust_field="420" data-lat="14.6117807" data-lng="120.9870632">
+                    <div class="spot-header">
+                        <span class="spot-area">Dapitan</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Mami Chula</h3>
+                    <p class="spot-address">1247-A Rosarito St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/Mami+Chula+Cuisines,+1247-A+Rosarito+St,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="205" data-dist-qpav="390" data-dist-hospital="270" data-dist-ust_field="400" data-lat="14.6118231" data-lng="120.9883606">
+                    <div class="spot-header">
+                        <span class="spot-area">Dapitan</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Takeout</h3>
+                    <p class="spot-address">1428 Dapitan St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/Takeout,+1428+Dapitan+St,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="220" data-dist-qpav="500" data-dist-hospital="345" data-dist-ust_field="430" data-lat="14.611934" data-lng="120.987419">
+                    <div class="spot-header">
+                        <span class="spot-area">Dapitan</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Sajang Chicken UST</h3>
+                    <p class="spot-address">1239 Asturias St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/place/Sajang+Chicken+UST,+1239+Asturias+St,+Sampaloc,+Manila" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="215" data-dist-qpav="485" data-dist-hospital="330" data-dist-ust_field="420" data-lat="14.61191" data-lng="120.98745">
+                    <div class="spot-header">
+                        <span class="spot-area">Dapitan</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Chew York</h3>
+                    <p class="spot-address">1235 Asturias St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/University+of+Santo+Tomas+Main+Building/Chew+York,+1235+Asturias+St,+Sampaloc,+Manila" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="170" data-dist-qpav="370" data-dist-hospital="205" data-dist-ust_field="240" data-lat="14.6112" data-lng="120.9888">
+                    <div class="spot-header">
+                        <span class="spot-area">Dapitan</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Hadouken</h3>
+                    <p class="spot-address">1817 España Blvd, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/place/Hadouken,+1817+España+Blvd,+Sampaloc,+Manila" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <!-- ESPAÑA -->
+                <div class="spot-card" data-dist-main_building="540" data-dist-qpav="570" data-dist-hospital="680" data-dist-ust_field="320" data-lat="14.6054709" data-lng="120.9894954">
+                    <div class="spot-header">
+                        <span class="spot-area">España</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Shawarma Bar Cafe</h3>
+                    <p class="spot-address">Tolentino St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/University+of+Santo+Tomas/SB+CAF%C3%89,+Tolentino+St,+Sampaloc,+Manila" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="310" data-dist-qpav="205" data-dist-hospital="280" data-dist-ust_field="320" data-lat="14.6079499" data-lng="120.9914351">
+                    <div class="spot-header">
+                        <span class="spot-area">España</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>The One</h3>
+                    <p class="spot-address">870 M.F. Jhocson, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/The+ONE+Santo+Tomas,+870+M.F.+Jhocson,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="370" data-dist-qpav="275" data-dist-hospital="350" data-dist-ust_field="235" data-lat="14.6074072" data-lng="120.9909854">
+                    <div class="spot-header">
+                        <span class="spot-area">España</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Happy Marianna</h3>
+                    <p class="spot-address">874 Moret St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/Happy+Marianna,+874+Moret+St,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="420" data-dist-qpav="225" data-dist-hospital="315" data-dist-ust_field="380" data-lat="14.6081516" data-lng="120.9924268">
+                    <div class="spot-header">
+                        <span class="spot-area">España</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Food House by Madla</h3>
+                    <p class="spot-address">836 Cayco St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/Food+House+By+Madla,+836+Cayco+St,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <!-- LACSON -->
+                <div class="spot-card" data-dist-main_building="340" data-dist-qpav="220" data-dist-hospital="180" data-dist-ust_field="370" data-lat="14.6107986" data-lng="120.9920527">
+                    <div class="spot-header">
+                        <span class="spot-area">Lacson</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Ilar's Tapsilogan</h3>
+                    <p class="spot-address">Lacson Ave, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/Ilar's+tapsilogan,+Lacson+Ave,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="330" data-dist-qpav="215" data-dist-hospital="245" data-dist-ust_field="530" data-lat="14.6127796" data-lng="120.9901899">
+                    <div class="spot-header">
+                        <span class="spot-area">Lacson</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Happy N' Healthy</h3>
+                    <p class="spot-address">1160 Lacson Ave, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/Happy+N'+Healthy,+1160+Lacson+Ave,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="330" data-dist-qpav="215" data-dist-hospital="245" data-dist-ust_field="530" data-lat="14.6127895" data-lng="120.9901692">
+                    <div class="spot-header">
+                        <span class="spot-area">Lacson</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>MICHI Japanese Restaurant & Cafe</h3>
+                    <p class="spot-address">Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/MICHI+Japanese+Restaurant+%26+Cafe,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+            </div>
+
+            <!-- COFFEE SHOPS -->
+            <div class="spot-grid tab-content" id="coffee" style="display: none;">
+                <!-- P. NOVAL -->
+                <div class="spot-card" data-dist-main_building="265" data-dist-qpav="515" data-dist-hospital="420" data-dist-ust_field="285" data-lat="14.6088408" data-lng="120.9872473">
+                    <div class="spot-header">
+                        <span class="spot-area">P. Noval</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Coffee Pages</h3>
+                    <p class="spot-address">1233 J Barlin St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/Coffeepages+UST+P.Noval,+1233+J+Barlin+St,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="365" data-dist-qpav="485" data-dist-hospital="560" data-dist-ust_field="185" data-lat="14.6070269" data-lng="120.98903">
+                    <div class="spot-header">
+                        <span class="spot-area">P. Noval</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Draft Coffee</h3>
+                    <p class="spot-address">923 Padre Noval St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/Draft+Coffee+by+Lew's,+923+Padre+Noval+St,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="365" data-dist-qpav="440" data-dist-hospital="495" data-dist-ust_field="170" data-lat="14.6075508" data-lng="120.9882003">
+                    <div class="spot-header">
+                        <span class="spot-area">P. Noval</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Kaffi Cafe</h3>
+                    <p class="spot-address">1218 Delos Reyes St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/Kaffi+Cafe,+1218+Delos+Reyes+St,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="360" data-dist-qpav="420" data-dist-hospital="475" data-dist-ust_field="185" data-lat="14.6077048" data-lng="120.9883791">
+                    <div class="spot-header">
+                        <span class="spot-area">P. Noval</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Mood & Coffee</h3>
+                    <p class="spot-address">981 Padre Noval St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/Mood+%26+Coffee,+981+Padre+Noval+St,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="325" data-dist-qpav="500" data-dist-hospital="450" data-dist-ust_field="215" data-lat="14.6078179" data-lng="120.9874995">
+                    <div class="spot-header">
+                        <span class="spot-area">P. Noval</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Switch Coffee</h3>
+                    <p class="spot-address">1036 Tolentino St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/Switch+Coffee,+1036+Tolentino+St,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="275" data-dist-qpav="510" data-dist-hospital="420" data-dist-ust_field="290" data-lat="14.6088" data-lng="120.9872">
+                    <div class="spot-header">
+                        <span class="spot-area">P. Noval</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Tomo Coffee (P. Noval)</h3>
+                    <p class="spot-address">1231 Barlin St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/place/TOMO+Coffee,+1231+Barlin+St,+Sampaloc,+Manila" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <!-- DAPITAN -->
+                <div class="spot-card" data-dist-main_building="175" data-dist-qpav="375" data-dist-hospital="270" data-dist-ust_field="420" data-lat="14.6117406" data-lng="120.9882419">
+                    <div class="spot-header">
+                        <span class="spot-area">Dapitan</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Kenangan Coffee</h3>
+                    <p class="spot-address">1423 Dapitan St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/Kenangan+Coffee,+1423+Dapitan+St,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="115" data-dist-qpav="330" data-dist-hospital="220" data-dist-ust_field="340" data-lat="14.6111994" data-lng="120.987654">
+                    <div class="spot-header">
+                        <span class="spot-area">Dapitan</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Kape Kuripot</h3>
+                    <p class="spot-address">1353 Dapitan St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/Kape+Kuripot,+1353+Dapitan+St,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="180" data-dist-qpav="390" data-dist-hospital="270" data-dist-ust_field="420" data-lat="14.6118313" data-lng="120.9881498">
+                    <div class="spot-header">
+                        <span class="spot-area">Dapitan</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Tomo Coffee (Dapitan)</h3>
+                    <p class="spot-address">1427 Dapitan St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/place/TOMO+Coffee,+1427+Dapitan+St,+Sampaloc,+Manila" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="290" data-dist-qpav="560" data-dist-hospital="470" data-dist-ust_field="255" data-lat="14.6081319" data-lng="120.9871824">
+                    <div class="spot-header">
+                        <span class="spot-area">Dapitan</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Heyday Cafe</h3>
+                    <p class="spot-address">1070 Tolentino St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/Heyday+Cafe,+1070+Tolentino+St,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="175" data-dist-qpav="455" data-dist-hospital="340" data-dist-ust_field="365" data-lat="14.6114442" data-lng="120.987873">
+                    <div class="spot-header">
+                        <span class="spot-area">Dapitan</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Yeoubi Cafe</h3>
+                    <p class="spot-address">1361 Dapitan St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/Yeoubi+Cafe,+1361+Dapitan+St,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="205" data-dist-qpav="535" data-dist-hospital="375" data-dist-ust_field="330" data-lat="14.6116" data-lng="120.9875">
+                    <div class="spot-header">
+                        <span class="spot-area">Dapitan</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Coffee Pages (Dapitan)</h3>
+                    <p class="spot-address">1221 Navarra St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/place/Coffeepages+UST+Dapitan,+1221+Navarra+St,+Sampaloc,+Manila" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="275" data-dist-qpav="425" data-dist-hospital="350" data-dist-ust_field="485" data-lat="14.61" data-lng="120.989">
+                    <div class="spot-header">
+                        <span class="spot-area">Dapitan</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>The Reader's Cafe</h3>
+                    <p class="spot-address">Miguel de Benavides Library, UST</p>
+                    <a href="https://www.google.com/maps/dir/UST+Miguel+de+Benavides+Library/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <!-- ESPAÑA -->
+                <div class="spot-card" data-dist-main_building="420" data-dist-qpav="270" data-dist-hospital="370" data-dist-ust_field="230" data-lat="14.6071" data-lng="120.9902">
+                    <div class="spot-header">
+                        <span class="spot-area">España</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>ZUS Coffee</h3>
+                    <p class="spot-address">University Tower 5, Galicia St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/ZUS+Coffee,+University+Tower+5,+Galicia+St,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="460" data-dist-qpav="360" data-dist-hospital="480" data-dist-ust_field="190" data-lat="14.6068" data-lng="120.9898">
+                    <div class="spot-header">
+                        <span class="spot-area">España</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Calle Cafe</h3>
+                    <p class="spot-address">España Blvd, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/Calle+Cafe+by+Don+Gabriel,+España+Blvd,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="445" data-dist-qpav="425" data-dist-hospital="535" data-dist-ust_field="210" data-lat="14.6065" data-lng="120.9895">
+                    <div class="spot-header">
+                        <span class="spot-area">España</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Sumu Creative Space</h3>
+                    <p class="spot-address">1202 España Blvd, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/Sumu+Creative+Space,+1202+España+Blvd,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="405" data-dist-qpav="315" data-dist-hospital="405" data-dist-ust_field="250" data-lat="14.6072" data-lng="120.9905">
+                    <div class="spot-header">
+                        <span class="spot-area">España</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Pickup Coffee</h3>
+                    <p class="spot-address">1320 España Blvd, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/PICKUP+COFFEE,+1320+España+Blvd,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="600" data-dist-qpav="380" data-dist-hospital="460" data-dist-ust_field="700" data-lat="14.609" data-lng="120.993">
+                    <div class="spot-header">
+                        <span class="spot-area">España</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Maeil Cafe</h3>
+                    <p class="spot-address">Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/Maeil+Cafe,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <!-- LACSON -->
+                <div class="spot-card" data-dist-main_building="600" data-dist-qpav="380" data-dist-hospital="460" data-dist-ust_field="700" data-lat="14.613" data-lng="120.9905">
+                    <div class="spot-header">
+                        <span class="spot-area">Lacson</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Nomu</h3>
+                    <p class="spot-address">1200 Lacson Ave, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/Nomu+Cafe,+1200+Lacson+Ave,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="310" data-dist-qpav="95" data-dist-hospital="105" data-dist-ust_field="330" data-lat="14.6121" data-lng="120.9895">
+                    <div class="spot-header">
+                        <span class="spot-area">Lacson</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Sevie Roast Coffee</h3>
+                    <p class="spot-address">Piy Margal St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/Sevie+Roast+Coffee,+Piy+Margal+St,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="370" data-dist-qpav="155" data-dist-hospital="195" data-dist-ust_field="400" data-lat="14.6118" data-lng="120.99">
+                    <div class="spot-header">
+                        <span class="spot-area">Lacson</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Masida Coffee</h3>
+                    <p class="spot-address">Lacson Ave, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/place/Masida+Coffee,+Lacson+Ave,+Sampaloc,+Manila" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="370" data-dist-qpav="225" data-dist-hospital="300" data-dist-ust_field="480" data-lat="14.6085" data-lng="120.9928">
+                    <div class="spot-header">
+                        <span class="spot-area">Lacson</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Floti Cafe</h3>
+                    <p class="spot-address">832 Earnshaw St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/place/Floti+Cafe,+832+Earnshaw+St,+Sampaloc,+Manila" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="360" data-dist-qpav="225" data-dist-hospital="220" data-dist-ust_field="570" data-lat="14.6083" data-lng="120.9925">
+                    <div class="spot-header">
+                        <span class="spot-area">Lacson</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Pedal Cafe</h3>
+                    <p class="spot-address">Earnshaw Suites, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/Pedal+Cafe,+Earnshaw+Suites,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="350" data-dist-qpav="185" data-dist-hospital="210" data-dist-ust_field="475" data-lat="14.6082" data-lng="120.9918">
+                    <div class="spot-header">
+                        <span class="spot-area">Lacson</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Eutopia Cafe</h3>
+                    <p class="spot-address">1579 España Blvd, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/Eutopia+Cafe,+1579+España+Blvd,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+            </div>
+
+            <!-- STUDY SPOTS -->
+            <div class="spot-grid tab-content" id="study" style="display: none;">
+                <!-- P. NOVAL -->
+                <div class="spot-card" data-dist-main_building="500" data-dist-qpav="560" data-dist-hospital="650" data-dist-ust_field="275" data-lat="14.6057877" data-lng="120.9895013">
+                    <div class="spot-header">
+                        <span class="spot-area">P. Noval</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>933 Coworking Cafe</h3>
+                    <p class="spot-address">854 Tolentino St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/933+Coworking+Cafe,+854+Tolentino+St,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="330" data-dist-qpav="500" data-dist-hospital="435" data-dist-ust_field="240" data-lat="14.6079" data-lng="120.9878">
+                    <div class="spot-header">
+                        <span class="spot-area">P. Noval</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>933 Creatives</h3>
+                    <p class="spot-address">1042 Tolentino St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/place/933+Creatives,+1042+Tolentino+St,+Sampaloc,+Manila" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="340" data-dist-qpav="525" data-dist-hospital="460" data-dist-ust_field="250" data-lat="14.608" data-lng="120.9877">
+                    <div class="spot-header">
+                        <span class="spot-area">P. Noval</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>The Loft</h3>
+                    <p class="spot-address">1057 Tolentino St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/place/The+Loft,+1057+Tolentino+St,+Sampaloc,+Manila" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="290" data-dist-qpav="535" data-dist-hospital="425" data-dist-ust_field="310" data-lat="14.6087" data-lng="120.9873">
+                    <div class="spot-header">
+                        <span class="spot-area">P. Noval</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Skylabs</h3>
+                    <p class="spot-address">1231 J Barlin St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/place/SkyLabs,+1231+J+Barlin+St,+Sampaloc,+Manila" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <!-- DAPITAN -->
+                <div class="spot-card" data-dist-main_building="275" data-dist-qpav="285" data-dist-hospital="250" data-dist-ust_field="490" data-lat="14.6127278" data-lng="120.9892894">
+                    <div class="spot-header">
+                        <span class="spot-area">Dapitan</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>HomeRoom Co-Working</h3>
+                    <p class="spot-address">1521 Dapitan St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/place/HomeRoom+Co-Working+and+Study+Lounge,+1521+Dapitan+St,+Sampaloc,+Manila" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="520" data-dist-qpav="600" data-dist-hospital="455" data-dist-ust_field="740" data-lat="14.6135" data-lng="120.991">
+                    <div class="spot-header">
+                        <span class="spot-area">Dapitan</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Studeo Spaces Study Hub</h3>
+                    <p class="spot-address">1705 Dapitan St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/place/Studeo+Spaces+Study+Hub,+1705+Dapitan+St,+Sampaloc,+Manila" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="210" data-dist-qpav="410" data-dist-hospital="300" data-dist-ust_field="370" data-lat="14.6117" data-lng="120.9878">
+                    <div class="spot-header">
+                        <span class="spot-area">Dapitan</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Outside The Box Co-working</h3>
+                    <p class="spot-address">1210 Asturias St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/place/Outside+The+Box+Co-working+%26+Study+Lounge,+1210+Asturias+St,+Sampaloc,+Manila" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="250" data-dist-qpav="410" data-dist-hospital="315" data-dist-ust_field="460" data-lat="14.6122" data-lng="120.988">
+                    <div class="spot-header">
+                        <span class="spot-area">Dapitan</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>WhiteBoard Student Lounge</h3>
+                    <p class="spot-address">V Concepcion St, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/place/WhiteBoard+Student+Lounge+and+Co-Working+Space,+V+Concepcion+St,+Sampaloc,+Manila" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <!-- ESPAÑA -->
+                <div class="spot-card" data-dist-main_building="555" data-dist-qpav="530" data-dist-hospital="680" data-dist-ust_field="300" data-lat="14.6055" data-lng="120.9893">
+                    <div class="spot-header">
+                        <span class="spot-area">España</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>The Catalyst</h3>
+                    <p class="spot-address">St. Thomas Square, España Blvd, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/place/The+Catalyst,+St.+Thomas+Square,+España+Blvd,+Sampaloc,+Manila" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="495" data-dist-qpav="470" data-dist-hospital="600" data-dist-ust_field="240" data-lat="14.6062145" data-lng="120.9897143">
+                    <div class="spot-header">
+                        <span class="spot-area">España</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Mind Zone España</h3>
+                    <p class="spot-address">1139 España Blvd, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/place/Mind+Zone,+1139+España+Blvd,+Sampaloc,+Manila" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <!-- LACSON -->
+                <div class="spot-card" data-dist-main_building="495" data-dist-qpav="470" data-dist-hospital="600" data-dist-ust_field="240" data-lat="14.6075" data-lng="120.992">
+                    <div class="spot-header">
+                        <span class="spot-area">Lacson</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>3sha's Coworking Studio</h3>
+                    <p class="spot-address">785 Lacson Ave, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/3sha's+Coworking+Studio,+785+Lacson+Ave,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+
+                <div class="spot-card" data-dist-main_building="415" data-dist-qpav="165" data-dist-hospital="245" data-dist-ust_field="440" data-lat="14.6088" data-lng="120.9922">
+                    <div class="spot-header">
+                        <span class="spot-area">Lacson</span>
+                        <span class="walk-badge" data-time-badge>🚶 -- min</span>
+                    </div>
+                    <h3>Upper Room Coworking</h3>
+                    <p class="spot-address">851 AH Lacson Ave, Sampaloc, Manila</p>
+                    <a href="https://www.google.com/maps/dir/Upper+Room+Coworking+and+Virtual+Office,+851+AH+Lacson+Ave,+Sampaloc,+Manila/University+of+Santo+Tomas+Main+Building" target="_blank" class="spot-action">Get Directions ↗</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="department section" id="faqs">
+        <div class="container">
+            <div class="department-heading">
+                <p class="overline">FREQUENTLY ASKED QUESTIONS</p>
+                <h2>What is <em>Actuarial Science?</em></h2>
+                <p>An actuary is a professional who uses mathematics, statistics, and financial theory to analyze and manage risk and uncertainty.</p>
+            </div>
+
+            <div class="department-grid">
+                <article class="department-card">
+                    <div class="department-number">01</div>
+                    <h3>Key Responsibilities</h3>
+                    <p>Actuaries help organizations answer critical questions such as:</p>
+                    <ul class="faq-list">
+                        <li>How much should insurance cost?</li>
+                        <li>What is the financial risk of an event happening?</li>
+                        <li>How can companies prepare for future uncertainty?</li>
+                    </ul>
+
+                    <div class="faq-references">
+                        <strong>Professional Bodies:</strong>
+                        <a href="https://www.soa.org" target="_blank" rel="noopener">Society of Actuaries (SOA) ↗</a>
+                        <a href="https://www.actuaries.org.uk" target="_blank" rel="noopener">Institute and Faculty of Actuaries (IFoA) ↗</a>
+                    </div>
+                </article>
+
+                <article class="department-card vision-card">
+                    <div class="department-number">02</div>
+                    <h3>Career Opportunities</h3>
+                    <p>What careers can I pursue after graduating?</p>
+
+                    <ul class="careers-tags">
+                        <li>Actuary</li>
+                        <li>Actuarial Analyst</li>
+                        <li>Risk Analyst</li>
+                        <li>Financial Analyst</li>
+                        <li>Investment Analyst</li>
+                        <li>Insurance Analyst</li>
+                        <li>Insurance Underwriter</li>
+                        <li>Data Analyst</li>
+                        <li>Statistician / Data Scientist</li>
+                        <li>Operations Research Analyst</li>
+                        <li>Research Scientist</li>
+                        <li>System Manager / Auditor</li>
+                        <li>Educator</li>
+                        <li>Human Resource Practitioner</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects section" id="curriculum">
+        <div class="container">
+            <div class="projects-heading">
+                <div>
+                    <p class="overline">ACADEMIC ROADMAP</p>
+                    <h2>Expected <em>Subjects.</em></h2>
+                </div>
+                <p>A comprehensive course breakdown across all four years of the Actuarial Science program.</p>
+            </div>
+
+            <div class="curriculum-container">
+                <table class="curriculum-table">
+                    <thead>
+                        <tr>
+                            <th>Year</th>
+                            <th>First Term</th>
+                            <th>Second Term</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>First Year</strong></td>
+                            <td>
+                                <ul>
+                                    <li>Fundamental Concepts of Mathematics</li>
+                                    <li>Fundamentals of Computing I (+ Lab)</li>
+                                    <li>Calculus I</li>
+                                    <li>Mathematics in the Modern World</li>
+                                    <li>Purposive Communication</li>
+                                    <li>Science, Technology and Society</li>
+                                    <li>Christian Vision of the Human Person</li>
+                                    <li>PATH-FIT 1</li>
+                                    <li>NSTP 1</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>Statistical Theory (+ Lab)</li>
+                                    <li>Fundamentals of Computing II (+ Lab)</li>
+                                    <li>Calculus II</li>
+                                    <li>Art Appreciation</li>
+                                    <li>Readings in Philippine History</li>
+                                    <li>Understanding the Self</li>
+                                    <li>Christian Vision of Marriage and Family</li>
+                                    <li>PATH-FIT 2</li>
+                                    <li>NSTP 2</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Second Year</strong></td>
+                            <td>
+                                <ul>
+                                    <li>Discrete Mathematics</li>
+                                    <li>Probability</li>
+                                    <li>Mechanics with Simple Harmonic Motion (+ Lab)</li>
+                                    <li>Calculus III</li>
+                                    <li>Elective I</li>
+                                    <li>Christian Vision of the Church in Society</li>
+                                    <li>PATH-FIT 3</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>Linear Algebra</li>
+                                    <li>Mathematical Statistics</li>
+                                    <li>Theory of Interest I</li>
+                                    <li>Differential Equations</li>
+                                    <li>Basic Electricity and Magnetism</li>
+                                    <li>Panimulang Pagsasalin</li>
+                                    <li>Christian Vision in the Contemporary World</li>
+                                    <li>PATH-FIT 4</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Third Year</strong></td>
+                            <td>
+                                <ul>
+                                    <li>Advanced Calculus</li>
+                                    <li>Theory of Interest II</li>
+                                    <li>Life Contingencies I</li>
+                                    <li>Mathematical Modelling</li>
+                                    <li>Qualified Elective/Cognate I</li>
+                                    <li>Ethics</li>
+                                    <li>Elective II</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>Microeconomics</li>
+                                    <li>Risk Theory</li>
+                                    <li>Operations Research</li>
+                                    <li>Life Contingencies II</li>
+                                    <li>Research I</li>
+                                    <li>Practicum</li>
+                                    <li>Elective III</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fourth Year</strong></td>
+                            <td>
+                                <ul>
+                                    <li>Numerical Analysis (+ Lab)</li>
+                                    <li>Macroeconomics</li>
+                                    <li>Research II</li>
+                                    <li>The Contemporary World</li>
+                                    <li>Qualified Elective/Cognate II</li>
+                                    <li>Professional Elective I</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>Research III</li>
+                                    <li>Qualified Elective/Cognate III</li>
+                                    <li>Qualified Elective/Cognate IV</li>
+                                    <li>Professional Elective II</li>
+                                    <li>Life and Works of Rizal</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="curriculum-footer">
+                <p><strong>Effectivity:</strong> A.Y. 2023–2024</p>
+                <p class="muted-text">This curriculum may be updated upon the release of new University guidelines.</p>
+                <p class="curriculum-ref">
+                    <strong>Reference:</strong> 
+                    <a href="https://myuste.ust.edu.ph" target="_blank" rel="noopener">MyUSTe Portal</a> • 
+                    <a href="https://www.soa.org" target="_blank" rel="noopener">Society of Actuaries (SOA)</a>
+                </p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-top">
+            <a href="#home" class="brand">
+                <div class="logo-mark">
+                    <img src="MathSoc Logo.png" alt="UST Mathematical Society Logo" onerror="this.style.display='none'">
+                </div>
+                <div class="brand-name">
+                    <strong>Actuarial Survival Kit</strong>
+                    <span>UST Mathematical Society</span>
+                </div>
+            </a>
+
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#survival-pack">Survival Pack</a>
+                <a href="#faqs">FAQs</a>
+                <a href="#curriculum">Curriculum</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>© 2026 Actuarial Survival Kit • UST Mathematical Society</span>
+            <span>University of Santo Tomas</span>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const UST_LANDMARKS = {
+        main_building: { lat: 14.610278, lng: 120.989167, name: "UST Main Building" },
+        qpav:          { lat: 14.611980, lng: 120.988890, name: "Quadricentennial Pavilion (QPAV)" },
+        hospital:      { lat: 14.611250, lng: 120.990880, name: "UST Hospital" },
+        ust_field:     { lat: 14.608300, lng: 120.989450, name: "UST Field" }
+    };
+
+    let currentOrigin = UST_LANDMARKS.main_building;
+    window.isAutoSorting = false;
+
+    const menuButton = document.getElementById("menuButton");
+    const navLinks = document.getElementById("navLinks");
+
+    if (menuButton && navLinks) {
+        menuButton.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+    }
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+            if (navLinks) {
+                navLinks.classList.remove("active");
+            }
+        });
+    });
+
+    function calculateHaversineDistance(lat1, lon1, lat2, lon2) {
+        const R = 6371e3; // Earth radius in meters
+        const rad = Math.PI / 180;
+        const dLat = (lat2 - lat1) * rad;
+        const dLon = (lon2 - lon1) * rad;
+        const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                  Math.cos(lat1 * rad) * Math.cos(lat2 * rad) *
+                  Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        return R * c;
+    }
+
+    function updateCalculatedWalkTimes() {
+        const selectElem = document.getElementById('startingLocationSelect');
+        const statusElem = document.getElementById('locationStatus');
+        const selectedKey = selectElem ? selectElem.value : 'main_building';
+
+        if (UST_LANDMARKS[selectedKey] && !currentOrigin.isGPS) {
+            currentOrigin = UST_LANDMARKS[selectedKey];
+            if (statusElem) {
+                statusElem.innerHTML = `Starting point set to: <strong>${currentOrigin.name}</strong>`;
+            }
+        }
+
+        const spotCards = document.querySelectorAll('.spot-card');
+
+        spotCards.forEach(card => {
+            const badgeElem = card.querySelector('[data-time-badge]');
+            if (!badgeElem) return;
+
+            let distanceMeters = 0;
+
+            if (currentOrigin.isGPS) {
+                const destLat = parseFloat(card.getAttribute('data-lat'));
+                const destLng = parseFloat(card.getAttribute('data-lng'));
+                if (!isNaN(destLat) && !isNaN(destLng)) {
+                    distanceMeters = calculateHaversineDistance(
+                        currentOrigin.lat, currentOrigin.lng,
+                        destLat, destLng
+                    ) * 1.15;
+                }
+            } else {
+                const presetDist = card.getAttribute(`data-dist-${selectedKey}`);
+                if (presetDist) {
+                    distanceMeters = parseFloat(presetDist);
+                }
+            }
+
+            const walkTimeMinutes = Math.max(1, Math.round(distanceMeters / 80));
+            card.setAttribute('data-distance', distanceMeters);
+            badgeElem.textContent = `🚶 ${walkTimeMinutes} min walk (${Math.round(distanceMeters)}m)`;
+        });
+
+        if (window.isAutoSorting) {
+            sortSpotsByDistance();
+        }
+    }
+
+    function sortSpotsByDistance() {
+        window.isAutoSorting = true; 
+        
+        const grids = document.querySelectorAll('.spot-grid');
+        
+        grids.forEach(grid => {
+            const cards = Array.from(grid.querySelectorAll('.spot-card'));
+            
+            cards.sort((a, b) => {
+                const distA = parseFloat(a.getAttribute('data-distance')) || Infinity;
+                const distB = parseFloat(b.getAttribute('data-distance')) || Infinity;
+                return distA - distB; 
+            });
+            
+            cards.forEach(card => grid.appendChild(card));
+        });
+
+        const sortBtn = document.getElementById('sortBtn');
+        if (sortBtn) {
+            sortBtn.innerHTML = "✅ Sorted by Nearest";
+            sortBtn.style.backgroundColor = "var(--brand-purple-light)";
+            sortBtn.style.color = "var(--brand-purple-dark)";
+        }
+    }
+
+    function useGPSLocation() {
+        const statusElem = document.getElementById('locationStatus');
+
+        if (!navigator.geolocation) {
+            alert("Geolocation is not supported by your browser.");
+            return;
+        }
+
+        if (statusElem) {
+            statusElem.innerHTML = "<em>Fetching current GPS coordinates...</em>";
+        }
+
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                currentOrigin = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude,
+                    name: "Your Current GPS Location",
+                    isGPS: true
+                };
+
+                if (statusElem) {
+                    statusElem.innerHTML = `Starting point set to: <strong>Your GPS Location</strong>`;
+                }
+
+                updateCalculatedWalkTimes();
+            },
+            () => {
+                alert("Unable to retrieve your location. Reverting to preset landmarks.");
+                currentOrigin.isGPS = false;
+                updateCalculatedWalkTimes();
+            }
+        );
+    }
+
+    function switchTab(category) {
+        const contents = document.querySelectorAll('.tab-content');
+        contents.forEach(content => {
+            content.style.display = 'none';
+            content.classList.remove('active');
+        });
+
+        const buttons = document.querySelectorAll('.tab-button');
+        buttons.forEach(button => {
+            button.classList.remove('active');
+        });
+
+        const selectedTab = document.getElementById(category);
+        if (selectedTab) {
+            selectedTab.style.display = 'flex';
+            selectedTab.classList.add('active');
+        }
+
+        if (event && event.currentTarget) {
+            event.currentTarget.classList.add('active');
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        updateCalculatedWalkTimes();
+    });
+</script>
+
+</body>
+</html>
