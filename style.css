@@ -430,7 +430,7 @@ h2 em {
     border: 1px solid var(--line);
     padding: 40px;
     margin-top: 50px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     box-shadow: none;
     position: relative;
     overflow: hidden;
@@ -522,6 +522,55 @@ h2 em {
     color: var(--yellow);
 }
 
+/* STREET FILTER CONTROLS */
+.street-filter-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    padding: 14px 20px;
+    background-color: var(--violet-light);
+    border: 1px solid var(--line);
+}
+
+.street-filter-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--violet-dark);
+}
+
+.street-filter-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.street-filter-btn {
+    padding: 6px 16px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    border: 1px solid var(--violet);
+    background-color: var(--white);
+    color: var(--violet-dark);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 20px;
+}
+
+.street-filter-btn:hover {
+    background-color: var(--violet);
+    color: var(--white);
+}
+
+.street-filter-btn.active {
+    background-color: var(--violet-dark);
+    color: var(--yellow);
+    border-color: var(--violet-dark);
+}
+
 /* SURVIVAL PACK TABS */
 .tab-container {
     display: flex;
@@ -556,11 +605,11 @@ h2 em {
     background-color: transparent;
 }
 
-/*SPOT GRIDS & CARDS */
+/* SPOT GRIDS & CARDS */
 .spot-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem; /* Smaller gap between cards */
+    gap: 0.75rem;
     align-items: flex-start;
 }
 
@@ -569,8 +618,8 @@ h2 em {
     border: 1px solid var(--line);
     border-top: 3px solid var(--violet);
     border-radius: 6px;
-    padding: 0.75rem 1rem; /* Compact padding to fit text closely */
-    width: fit-content;    /* Shrinks the card width to fit the exact text size */
+    padding: 0.75rem 1rem;
+    width: fit-content;
     max-width: 300px;
     box-shadow: 0 1px 3px rgba(76, 29, 149, 0.08);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -891,12 +940,6 @@ h2 em {
         display: flex;
     }
 
-    .nav-links a {
-        width: 100%;
-        padding: 13px 0;
-        color: var(--gray);
-    }
-
     .menu-button {
         display: block;
     }
@@ -904,48 +947,17 @@ h2 em {
     .intro-grid,
     .department-grid {
         grid-template-columns: 1fr;
+        gap: 40px;
     }
 
-    .spot-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .container {
-        width: min(100% - 32px, var(--container));
-    }
-
-    .section {
-        padding: 80px 0;
-    }
-
-    .brand-name span {
-        display: none;
-    }
-
-    .hero h1 {
-        font-size: 3.7rem;
-    }
-
-    .spot-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .department-card,
-    .location-picker-card {
-        padding: 30px 25px;
-    }
-
-    .footer-top,
-    .footer-bottom {
+    .projects-heading {
         flex-direction: column;
         align-items: flex-start;
-        gap: 25px;
+        gap: 15px;
     }
 
-    .footer-links {
-        flex-wrap: wrap;
-        gap: 18px;
+    .street-filter-container {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
