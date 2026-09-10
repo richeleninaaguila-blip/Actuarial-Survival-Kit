@@ -93,9 +93,11 @@ const spotCount = document.getElementById("spotCount");
 const searchInput = document.getElementById("searchInput");
 
 function renderSpots() {
+    if (!spotsGrid) return;
+
     const filteredSpots = spotsData.filter(spot => {
         const matchesCategory = selectedCategory === "all" || spot.category === selectedCategory;
-        const matchesLocation = selectedLocation === "all" || spot.location === selectedLocation;
+        const matchesLocation = selectedLocation === "all" || spot.location.toLowerCase() === selectedLocation.toLowerCase();
         const matchesSearch = spot.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
                               spot.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
                               spot.location.toLowerCase().includes(searchQuery.toLowerCase());
@@ -103,7 +105,7 @@ function renderSpots() {
         return matchesCategory && matchesLocation && matchesSearch;
     });
 
-    spotCount.textContent = filteredSpots.length;
+    if (spotCount) spotCount.textContent = filteredSpots.length;
     spotsGrid.innerHTML = "";
 
     if (filteredSpots.length === 0) {
@@ -130,6 +132,8 @@ function renderSpots() {
 
 function setupFilterEvents(containerId, stateSetter) {
     const container = document.getElementById(containerId);
+    if (!container) return;
+
     container.addEventListener("click", (e) => {
         if (e.target.tagName === "BUTTON") {
             container.querySelectorAll("button").forEach(btn => btn.classList.remove("active"));
@@ -143,10 +147,12 @@ function setupFilterEvents(containerId, stateSetter) {
 setupFilterEvents("categoryFilters", (val) => selectedCategory = val);
 setupFilterEvents("locationFilters", (val) => selectedLocation = val);
 
-searchInput.addEventListener("input", (e) => {
-    searchQuery = e.target.value;
-    renderSpots();
-});
+if (searchInput) {
+    searchInput.addEventListener("input", (e) => {
+        searchQuery = e.target.value;
+        renderSpots();
+    });
+}
 
 // Initial Render
 renderSpots();
