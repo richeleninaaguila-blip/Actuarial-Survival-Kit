@@ -121,6 +121,19 @@
                 </div>
             </div>
 
+            <!-- STREET FILTER CONTROLS -->
+            <div class="street-filter-container">
+                <span class="street-filter-label">Filter by Street:</span>
+                <div class="street-filter-buttons" id="streetFilterButtons">
+                    <button class="street-filter-btn active" onclick="filterByStreet('All', this)">All Streets</button>
+                    <button class="street-filter-btn" onclick="filterByStreet('P. Noval', this)">P. Noval</button>
+                    <button class="street-filter-btn" onclick="filterByStreet('Dapitan', this)">Dapitan</button>
+                    <button class="street-filter-btn" onclick="filterByStreet('Lacson', this)">Lacson</button>
+                    <button class="street-filter-btn" onclick="filterByStreet('España', this)">España</button>
+                </div>
+            </div>
+
+            <!-- CATEGORY TABS -->
             <div class="tab-container">
                 <button class="tab-button active" onclick="switchTab('food')">Food Spots</button>
                 <button class="tab-button" onclick="switchTab('coffee')">Coffee Shops</button>
@@ -979,6 +992,7 @@
     };
 
     let currentOrigin = UST_LANDMARKS.main_building;
+    let currentStreetFilter = 'All';
     window.isAutoSorting = false;
 
     const menuButton = document.getElementById("menuButton");
@@ -1139,8 +1153,37 @@
         }
     }
 
+    function filterByStreet(streetName, buttonElem) {
+        currentStreetFilter = streetName;
+
+        const buttons = document.querySelectorAll('.street-filter-btn');
+        buttons.forEach(btn => btn.classList.remove('active'));
+
+        if (buttonElem) {
+            buttonElem.classList.add('active');
+        }
+
+        applyStreetFilter();
+    }
+
+    function applyStreetFilter() {
+        const spotCards = document.querySelectorAll('.spot-card');
+
+        spotCards.forEach(card => {
+            const areaElem = card.querySelector('.spot-area');
+            const cardStreet = areaElem ? areaElem.textContent.trim() : '';
+
+            if (currentStreetFilter === 'All' || cardStreet.toLowerCase() === currentStreetFilter.toLowerCase()) {
+                card.style.display = '';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
         updateCalculatedWalkTimes();
+        applyStreetFilter();
     });
 </script>
 
